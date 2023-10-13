@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF 업로드</title>
+</head>
+
+<body>
+    <h1>PDF 파일 업로드</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="pdf_file" accept=".pdf" required>
+        <button type="submit">업로드</button>
+    </form>
+
+    {% if json_file_path %}
+        <h2>JSON 파일 다운로드 링크</h2>
+        <a href="{{ json_file_path }}" download>JSON 파일 다운로드</a>
+    {% endif %}
+</body>
+
+</html>
